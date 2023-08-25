@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 public class messageController {
     @Autowired
     private MessageService messageService;
-    @RequestMapping(value = "message", produces="application/json")
-    public String sendMessage(@RequestBody UserMessage message){
-        return messageService.send(message);
+    @PostMapping(value = "message")
+    public void sendMessage(@RequestBody UserMessage message){
+        messageService.send(message);
     }
 }
 

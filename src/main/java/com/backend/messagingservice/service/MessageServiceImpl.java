@@ -35,8 +35,8 @@ public class MessageServiceImpl implements MessageService{
     }
 
     @Override
-    public String send(UserMessage message){
+    public void send(UserMessage message){
         messageSender.send(buildMessage(message));
-        return "Success\n" + message.toString();
+        return;
     }
 }

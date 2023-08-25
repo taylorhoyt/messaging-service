@@ -4,5 +4,5 @@ import com.backend.messagingservice.object.UserMessage;
 
 public interface MessageService {
 
-    String send(UserMessage message);
+    void send(UserMessage message);
 }
