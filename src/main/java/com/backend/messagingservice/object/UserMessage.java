@@ -6,6 +6,6 @@ import lombok.Data;
 public class UserMessage {
     private String name;
     private String emailAddress;
+    private String phoneNumber;
     private String message;
-    private String dateAndTime;
 }

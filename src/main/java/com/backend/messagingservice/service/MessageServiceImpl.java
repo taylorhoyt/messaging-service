@@ -7,6 +7,9 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @Service
 public class MessageServiceImpl implements MessageService{
 
@@ -22,7 +25,11 @@ public class MessageServiceImpl implements MessageService{
         message.setFrom(environment.getProperty("backend.messagingservice.sendFrom"));
         message.setTo(environment.getProperty("backend.messagingservice.sendTo"));
         message.setSubject("Message from " + rawMessage.getName());
-        message.setText(rawMessage.getMessage() + "\n Sent on " + rawMessage.getDateAndTime());
+        message.setText(rawMessage.getMessage() +
+                "\nContact Info:" +
+                "\n\n" + rawMessage.getEmailAddress() +
+                "\n" + rawMessage.getPhoneNumber() +
+                "\nSent on " + LocalDate.now() + " at " + LocalTime.now());
 
         return message;
     }
